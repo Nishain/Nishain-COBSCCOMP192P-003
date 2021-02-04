@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		94C4C70525CBC5BC00CE4D1D /* Nishain-COBSCCOMP192P003.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nishain-COBSCCOMP192P003.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94C4C70525CBC5BC00CE4D1D /* WinWInCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WinWInCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94C4C70825CBC5BC00CE4D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94C4C70A25CBC5BD00CE4D1D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		94C4C70C25CBC5BD00CE4D1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		94C4C70625CBC5BC00CE4D1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				94C4C70525CBC5BC00CE4D1D /* Nishain-COBSCCOMP192P003.app */,
+				94C4C70525CBC5BC00CE4D1D /* WinWInCalculator.app */,
 				94C4C71B25CBC5C700CE4D1D /* Nishain-COBSCCOMP192P003Tests.xctest */,
 				94C4C72625CBC5C700CE4D1D /* Nishain-COBSCCOMP192P003UITests.xctest */,
 			);
@@ -145,7 +145,7 @@
 			);
 			name = "Nishain-COBSCCOMP192P003";
 			productName = "Nishain-COBSCCOMP192P003";
-			productReference = 94C4C70525CBC5BC00CE4D1D /* Nishain-COBSCCOMP192P003.app */;
+			productReference = 94C4C70525CBC5BC00CE4D1D /* WinWInCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
 		94C4C71A25CBC5C700CE4D1D /* Nishain-COBSCCOMP192P003Tests */ = {
@@ -441,7 +441,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ndds.com.Nishain-COBSCCOMP192P003";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WinWInCalculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "ndds.com.Nishain-COBSCCOMP192P003";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WinWInCalculator;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
