@@ -24,7 +24,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9g-nx-mmo">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="135.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTP-Oc-P7n">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" textAlignment="right" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTP-Oc-P7n" userLabel="display">
                                                         <rect key="frame" x="10" y="0.0" width="394" height="135.5"/>
                                                         <color key="backgroundColor" red="0.16391409586130645" green="0.16391409586130645" blue="0.16391409586130645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -219,7 +219,7 @@
                                                                 <rect key="frame" x="104" y="0.0" width="102.5" height="135.5"/>
                                                                 <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                <state key="normal" title="+">
+                                                                <state key="normal" title="=">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </state>
                                                             </button>
@@ -250,6 +250,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="buttonGrid" destination="DJc-AE-vxs" id="QZf-mZ-xuJ"/>
+                        <outlet property="display" destination="oTP-Oc-P7n" id="oOh-Hn-JbK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
