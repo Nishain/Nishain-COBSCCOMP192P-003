@@ -26,13 +26,14 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     @objc func onbuttonClicked(button:UIButton){
         let whatButton:String = button.titleLabel!.text!
         let displayText = display!.text!
         print(whatButton)
         if(whatButton=="="){
             
-            let answer = NSExpression(format: displayText.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "/", with: "/1.0/")).expressionValue(with: nil, context: nil) as! NSNumber
+            let answer = NSExpression(format: displayText.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "/", with: "/1.0/").replacingOccurrences(of: "%", with: "/100")).expressionValue(with: nil, context: nil) as! NSNumber
             display.text = answer.stringValue
         }else if(whatButton=="AC"){
             display.text = ""
@@ -46,13 +47,23 @@ class ViewController: UIViewController {
             }
             
             if(displayText.count==0 || displayText == "0"){
-                display.text = printCharacter
+                if(printCharacter.first!.isNumber){
+                    display.text = printCharacter
+                }
             }else{
-                display.text! += printCharacter
+                if(validate(a:displayText.last!,b:printCharacter.first!)){
+                    display.text! += printCharacter
+                }
+                
             }
                 
         }
     }
-
+    func validate(a: Character,b:Character) -> Bool{
+        if(a.isSymbol && b.isSymbol){
+            return false
+        }
+        return true
+    }
 }
 
