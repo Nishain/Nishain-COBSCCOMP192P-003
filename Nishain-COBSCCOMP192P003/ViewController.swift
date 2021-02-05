@@ -26,14 +26,12 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     @objc func onbuttonClicked(button:UIButton){
         let whatButton:String = button.titleLabel!.text!
         let displayText = display!.text!
-        print(whatButton)
         if(whatButton=="="){
             
-            let answer = NSExpression(format: displayText.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "/", with: "/1.0/").replacingOccurrences(of: "%", with: "/100")).expressionValue(with: nil, context: nil) as! NSNumber
+            let answer = NSExpression(format: displayText.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "/", with: "/1.0/").replacingOccurrences(of: "%", with: "/100.0")).expressionValue(with: nil, context: nil) as! NSNumber
             display.text = answer.stringValue
         }else if(whatButton=="AC"){
             display.text = ""
@@ -50,7 +48,40 @@ class ViewController: UIViewController {
                 if(printCharacter.first!.isNumber){
                     display.text = printCharacter
                 }
-            }else{
+            }else if(whatButton=="+/-"){
+                //for(i in displayText)
+                
+                var count = displayText.count - 1
+                let reverseForm = displayText.reversed()
+                for c in reverseForm{
+                    print("outer - \(c)")
+                    if(!c.isNumber && c != "."){
+                        let index = displayText.lastIndex(of: c)!
+                        print(c)
+                        if(c=="+"){
+                            display.text?.remove(at: index)
+                            display.text?.insert("-", at: index)
+                            return
+                        }else if(c=="-"){
+                            
+                            display.text?.remove(at:index)
+                        
+                            if(index != displayText.startIndex && displayText[displayText.index(before: index)].isNumber){
+                                    display.text?.insert("+", at: index)
+                            }
+                        
+                            return
+                        }else{
+                            display.text?.insert("-",at:displayText.index(after: index))
+                            return
+                        }
+                    }
+                    
+                    count -= 1
+                }
+                display.text = "-\(displayText)"
+            }
+            else{
                 if(validate(a:displayText.last!,b:printCharacter.first!)){
                     display.text! += printCharacter
                 }
@@ -59,7 +90,11 @@ class ViewController: UIViewController {
                 
         }
     }
+    
     func validate(a: Character,b:Character) -> Bool{
+        if(a.isNumber && b == "%"){
+            return true
+        }
         if(a.isSymbol && b.isSymbol){
             return false
         }
