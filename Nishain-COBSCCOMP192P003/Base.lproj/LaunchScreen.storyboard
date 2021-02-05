@@ -28,8 +28,10 @@
                                     <constraint firstAttribute="width" constant="100" id="tX4-Js-9Ih"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Win Win Calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-4h-4AN">
-                                <rect key="frame" x="116" y="553" width="182" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-4h-4AN">
+                                <rect key="frame" x="116" y="553" width="182" height="53"/>
+                                <string key="text">Fully functional
+Win Win Calculator</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -53,6 +55,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="371" height="482"/>
+        <image name="logo" width="185.5" height="241"/>
     </resources>
 </document>

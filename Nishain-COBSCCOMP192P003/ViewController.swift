@@ -109,7 +109,7 @@ class ViewController: UIViewController {
     func validate(a: Character,b:Character) -> Bool{
         
         if(a == "%"){
-            //if the previous character is % the user is only allowed to whitlisted operators afterwards
+            //if the previous character is % the user is only allowed to whitlisted opedijiorators afterwards
             if("+-x/".contains(b)){
                 return true
             }else{
