@@ -28,27 +28,17 @@ class ViewController: UIViewController {
     }
     @objc func onbuttonClicked(button:UIButton){
         let whatButton:String = button.titleLabel!.text!
+        if(display!.text == "infinite"){
+            display.text = "0"
+        }
         let displayText = display!.text!
         if(whatButton=="="){
             
             let answer = NSExpression(format: displayText.replacingOccurrences(of: "x", with: "*").replacingOccurrences(of: "/", with: "/1.0/").replacingOccurrences(of: "%", with: "/100.0")).expressionValue(with: nil, context: nil) as! NSNumber
-            display.text = answer.stringValue
+            display.text = answer.stringValue == "inf" ? "infinite" : answer.stringValue
         }else if(whatButton=="AC"){
-            display.text = ""
-        }
-        else{
-            var printCharacter:String
-            if(whatButton=="÷"){
-                printCharacter = "/"
-            }else{
-                printCharacter = whatButton
-            }
-            
-            if(displayText.count==0 || displayText == "0"){
-                if(printCharacter.first!.isNumber){
-                    display.text = printCharacter
-                }
-            }else if(whatButton=="+/-"){
+            display.text = "0"
+        }else if(whatButton=="+/-"){
                 let reverseForm = displayText.reversed()
                 var shouldSkipPercentage = reverseForm.first == "%"
                 for c in reverseForm{
@@ -77,6 +67,17 @@ class ViewController: UIViewController {
                     }
                 }
                 display.text = "-\(displayText)"
+            }
+        else{
+            var printCharacter:String
+            if(whatButton=="÷"){//replace divide symbol
+                printCharacter = "/"
+            }else{
+                printCharacter = whatButton
+            }
+            
+            if((displayText == "0") && printCharacter.first!.isNumber){
+                display.text = printCharacter
             }
             else{
                 if(validate(a:displayText.last!,b:printCharacter.first!)){
