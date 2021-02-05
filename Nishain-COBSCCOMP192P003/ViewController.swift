@@ -49,15 +49,12 @@ class ViewController: UIViewController {
                     display.text = printCharacter
                 }
             }else if(whatButton=="+/-"){
-                //for(i in displayText)
-                
-                var count = displayText.count - 1
                 let reverseForm = displayText.reversed()
+                var shouldSkipPercentage = reverseForm.first == "%"
                 for c in reverseForm{
-                    print("outer - \(c)")
-                    if(!c.isNumber && c != "."){
+                    if(!c.isNumber && c != "." && !shouldSkipPercentage){
                         let index = displayText.lastIndex(of: c)!
-                        print(c)
+                       
                         if(c=="+"){
                             display.text?.remove(at: index)
                             display.text?.insert("-", at: index)
@@ -75,9 +72,9 @@ class ViewController: UIViewController {
                             display.text?.insert("-",at:displayText.index(after: index))
                             return
                         }
+                    }else if(shouldSkipPercentage){
+                        shouldSkipPercentage = false
                     }
-                    
-                    count -= 1
                 }
                 display.text = "-\(displayText)"
             }
@@ -91,12 +88,25 @@ class ViewController: UIViewController {
         }
     }
     
+    var periodAlreadyAdded = false
     func validate(a: Character,b:Character) -> Bool{
-        if(a.isNumber && b == "%"){
-            return true
+        if(a == "%"){
+            if("+-x/".contains(b)){
+                return true
+            }else{
+                return false
+            }
         }
-        if(a.isSymbol && b.isSymbol){
+        if(!a.isNumber && !b.isNumber){
             return false
+        }
+        if(b=="."){
+            if(periodAlreadyAdded){
+                return false
+            }
+            periodAlreadyAdded = true
+        }else if(!b.isNumber){
+            periodAlreadyAdded = false
         }
         return true
     }
